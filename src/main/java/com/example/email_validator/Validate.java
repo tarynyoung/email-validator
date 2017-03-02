@@ -2,24 +2,24 @@ package com.example.email_validator;
 
 public class Validate {
 	
-	private static int rulesPassed;
+	private static int rulesPassed, atChar, dotChar, hashtagChar, ampChar;
 
-	public static void Validate(String email){
+	public static String Validate(String email){
 		//counter for @ symbol
-		int atChar = 0;
+		atChar = 0;
 		//counter for . symbol
-		int dotChar = 0;
+		dotChar = 0;
 		//counter for # of rules passed
 		rulesPassed = 0;
 		
 		
 		//custom rule 1
 		//email addresses must not contain the # symbol
-		int hashtagChar = 0;
+		hashtagChar = 0;
 		
 		//custom rule 2
 		//email addresses must not contain & symbol
-		int ampChar = 0;
+		ampChar = 0;
 		
 		char c;
 		
@@ -58,11 +58,37 @@ public class Validate {
 			rulesPassed++;
 		}
 		
+		System.out.println("This email passes "+rulesPassed+" rules");
+		
+		if(rulesPassed==4){
+			return "This is a valid email";
+		}
+		else{
+			return "This is not a valid email";
+		}
+		
+	}
+	
+	//get methods for the counters
+	//useful for tests
+	public static int getAtChar(){
+		return atChar;
+	}
+	
+	public static int getDotChar(){
+		return dotChar;
+	}
+	
+	public static int getHashtagChar(){
+		return hashtagChar;
+	}
+	public static int getAmpChar(){
+		return ampChar;
 	}
 	
 	//returns # of rules passed
 	//return value of 4 means everything passes
-	public int getRulesPassed(){
+	public static int getRulesPassed(){
 		return rulesPassed;
 	}
 	
@@ -70,4 +96,6 @@ public class Validate {
 	public String toString(){
 		return "This email passes "+rulesPassed+" rules";
 	}
+
+
 }
