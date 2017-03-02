@@ -32,6 +32,7 @@ public class ValidateTest extends TestCase
         assertTrue( true );
     }
     
+    //emails to test
     private String e1="blah.blah.blah@blah";
     private String e2="bla5483(__#blah@blah";
     private String e3="b&l#gt#..blk";

@@ -2,7 +2,6 @@ package com.example.email_validator;
 
 public class Validate {
 	
-
 	private static int rulesPassed, atChar, dotChar;
 
 	public static String Validate(String email){
