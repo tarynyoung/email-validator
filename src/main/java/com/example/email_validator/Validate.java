@@ -3,13 +3,15 @@ package com.example.email_validator;
 public class Validate {
 	
 
-	public static void Validate(String email){
+	private static int rulesPassed, atChar, dotChar;
+
+	public static String Validate(String email){
 		//counter for @ symbol
-		int atChar = 0;
+		atChar = 0;
 		//counter for . symbol
-		int dotChar = 0;
+		dotChar = 0;
 		//counter for # of rules passed
-		int rulesPassed = 0;
+		rulesPassed = 0;
 		
 		char c;
 		
@@ -34,5 +36,33 @@ public class Validate {
 		}
 		
 		System.out.println("This email passes "+rulesPassed+" rules.");
+		
+		//if it passes both rules then it is a valid email
+		if(rulesPassed==2){
+			return "This is a valid email";
+		}
+		else{
+			return "This is not a valid email";
+		}
 	}
+	
+	//get methods for the counters
+		//useful for tests
+		public static int getAtChar(){
+			return atChar;
+		}
+		
+		public static int getDotChar(){
+			return dotChar;
+		}
+		//returns # of rules passed
+		//return value of 2 means everything passes
+		public static int getRulesPassed(){
+			return rulesPassed;
+		}
+		
+		//prints # of rules passed as a string
+		public String toString(){
+			return "This email passes "+rulesPassed+" rules";
+		}
 }

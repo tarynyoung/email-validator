@@ -31,5 +31,54 @@ public class ValidateTest extends TestCase
     {
         assertTrue( true );
     }
+    
+    private String e1="blah.blah.blah@blah";
+    private String e2="bla5483(__#blah@blah";
+    private String e3="b&l#gt#..blk";
+    
+    public void test1(){  	
+    	Validate.Validate(e1);
+    	assertTrue(Validate.getAtChar()==1);
+    }
+    
+    public void test2(){  	
+    	Validate.Validate(e1);
+    	assertTrue(Validate.getDotChar()==2);
+    }
+    
+    public void test3(){  	
+    	Validate.Validate(e1);
+    	assertTrue(Validate.getRulesPassed()==2);
+    }
+    
+    public void test4(){  	
+    	Validate.Validate(e2);
+    	assertTrue(Validate.getAtChar()==1);
+    }
+    
+    public void test5(){  	
+    	Validate.Validate(e2);
+    	assertTrue(Validate.getDotChar()==0);
+    }
+    public void test6(){  	
+    	Validate.Validate(e2);
+    	assertTrue(Validate.getRulesPassed()==1);
+    }
+    
+    public void test7(){  	
+    	Validate.Validate(e3);
+    	assertTrue(Validate.getAtChar()==0);
+    }
+    
+    public void test8(){  	
+    	Validate.Validate(e3);
+    	assertTrue(Validate.getDotChar()==2);
+    }
+    public void test15(){  	
+    	Validate.Validate(e3);
+    	assertTrue(Validate.getRulesPassed()==1);
+    }
+    
+    
 }
 
